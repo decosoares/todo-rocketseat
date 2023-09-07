@@ -1,12 +1,23 @@
 .wrapper {
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   padding: 1rem;
   gap: 0.75rem;
   color: var(--gray-100);
   background: var(--gray-500);
   border-radius: 8px;
   border: 1px solid var(--gray-400);
+  margin-bottom: 0.75rem;
+}
+
+.wrapper span {
+  flex-grow: 1;
+}
+
+.wrapper .isComplete {
+  text-decoration: line-through;
+  color: var(--gray-300);
 }
 
 .wrapper button {

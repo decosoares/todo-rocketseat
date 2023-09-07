@@ -1,8 +1,7 @@
-import { AddTodo } from "./components/AddTodo"
 import { Header } from "./components/Header"
 
 import styles from './App.module.css';
-import { Tasks } from "./components/Tasks";
+import { List } from "./components/List";
 
 function App() {
 
@@ -10,8 +9,7 @@ function App() {
     <>
       <Header />
       <div className={styles.wrapper}>
-        <AddTodo />
-        <Tasks/>
+        <List />
       </div>
     </>
   )

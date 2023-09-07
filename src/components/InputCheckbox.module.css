@@ -1,15 +1,13 @@
-.checkbox input {
-  height: 0;
-  width: 0;
+.customCheckbox {
+  display: inline-block;
+  position: relative;
+  margin-right: 0.75rem;
+  cursor: pointer;
 }
 
-.checkbox {
-  display: block;
-  position: relative;
-  padding-left: 26px;
-  margin-bottom: 18px;
-  font-size: 22px;
-  user-select: none;
+.customCheckbox input[type="checkbox"] {
+  display: none;
+  /* Ocultar a caixa de seleção nativa */
 }
 
 .checkmark {
@@ -18,32 +16,42 @@
   left: 0;
   height: 1rem;
   width: 1rem;
+  background: transparent;
+  border: 2px solid var(--blue);
   border-radius: 50%;
+}
+
+.checkmark:hover{
+  border: 2px solid var(--blue-dark);
+  background: var(--gray-400);
+}
+
+.customCheckbox input[type="checkbox"]:checked+.checkmark {
+  background: var(--purple-dark);
+  border: 1px solid var(--purple-dark);
+  /* Altere a cor do fundo quando selecionado */
+}
+
+.customCheckbox input[type="checkbox"]:checked+.checkmark:hover {
+  background: var(--blue);
   border: 1px solid var(--blue);
-  /* background-color: transparent; */
-  cursor:pointer;
 }
 
-.checkbox:hover input ~ .checkmark {
-  background-color: #c095c0;
-}
-.checkbox input:checked ~ .checkmark {
-  background-color: var(--gray-500);
-}
-
-.checkbox .checkmark:after {
-  top: -5px;
-  width: 5px;
-  height: 10px;
-  left: 2px;
-  color: var(--white);
-}
-
-.checkbox input:checked ~ .checkmark:after {
-  display: block;
-}
-
-.checkmark:after {
+.customCheckbox input[type="checkbox"]+.checkmark::before {
+  content: "\2713";
+  /* Símbolo de marca de seleção padrão */
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gray-100);
+  /* Altere a cor do símbolo para branco */
+  font-size: 0.75rem;
   display: none;
+  /* Ocultar o símbolo por padrão */
+}
+
+.customCheckbox input[type="checkbox"]:checked+.checkmark::before {
+  display: block;
+  /* Mostrar o símbolo quando selecionado */
 }

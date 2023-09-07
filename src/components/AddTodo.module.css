@@ -34,3 +34,7 @@
   border: 0;
   cursor: pointer;
 }
+
+.formContent button:hover {
+  background: var(--blue);
+}
